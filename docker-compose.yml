@@ -1,0 +1,13 @@
+oauth2_proxy:
+  build: .
+  ports:
+    - '4180:4180'
+  command: >-
+    -http-address=0.0.0.0:4180
+    -upstream=http://127.0.0.1:8000
+    -email-domain=example.com
+  environment:
+    OAUTH2_PROXY_COOKIE_SECRET: secret
+    OAUTH2_PROXY_COOKIE_DOMAIN: example.com
+    OAUTH2_PROXY_CLIENT_ID: abc
+    OAUTH2_PROXY_CLIENT_SECRET: secret
